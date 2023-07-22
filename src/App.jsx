@@ -27,6 +27,14 @@ export default function App() {
         });
     }
 
+    function deleteTodo(id) {
+        setTodos((currentTodos) => {
+            return currentTodos.filter((todo) => {
+                return todo.id !== id;
+            });
+        });
+    }
+
     return (
         <>
             <h1>Todo App</h1>
@@ -49,6 +57,13 @@ export default function App() {
                                     }}
                                 />
                                 {todo.title}
+                                <button
+                                    onClick={() => {
+                                        deleteTodo(todo.id);
+                                    }}
+                                >
+                                    Delete Todo
+                                </button>
                             </li>
                         );
                     })}
