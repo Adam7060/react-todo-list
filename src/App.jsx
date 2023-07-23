@@ -1,19 +1,15 @@
-import { useState } from 'react';
-import './style.css';
+import { useState } from "react";
+import "./style.css";
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
 
 export default function App() {
-    const [todos, setTodos] = useState('');
-    const [item, setItem] = useState('');
+    const [todos, setTodos] = useState([]);
 
-    function addTodo(e) {
-        e.preventDefault();
-
-        if (item === '') return;
+    function addTodo(item) {
         setTodos((currentTodos) => {
             return [...currentTodos, { id: crypto.randomUUID(), title: item, checked: false }];
         });
-
-        setItem('');
     }
 
     function toggleTodo(id, checked) {
@@ -38,36 +34,9 @@ export default function App() {
     return (
         <>
             <h1>Todo App</h1>
-            <form onSubmit={addTodo}>
-                <input onChange={(e) => setItem(e.target.value)} value={item} id="item" type="text" />
-                <button>Add Todo</button>
-            </form>
+            <TodoForm addTodo={addTodo} />
             <h1>Todo List</h1>
-            <ul>
-                {todos &&
-                    todos.map((todo) => {
-                        return (
-                            <li key={todo.id}>
-                                <input
-                                    type="checkbox"
-                                    id="completed"
-                                    checked={todo.checked}
-                                    onChange={(e) => {
-                                        toggleTodo(todo.id, e.target.checked);
-                                    }}
-                                />
-                                {todo.title}
-                                <button
-                                    onClick={() => {
-                                        deleteTodo(todo.id);
-                                    }}
-                                >
-                                    Delete Todo
-                                </button>
-                            </li>
-                        );
-                    })}
-            </ul>
+            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
         </>
     );
 }
