@@ -32,16 +32,16 @@ const App = () => {
     }
 
     return (
-        <>
-            <h1>Todo App</h1>
+        <div className="todo-app">
+            <h1 className="title">Todo App</h1>
             <TodoForm addTodo={addTodo} />
-            <h1>Todo List</h1>
+            <h2 className="title-list">Todo List:</h2>
             <TodoList
                 todos={todos}
                 toggleTodo={toggleTodo}
                 deleteTodo={deleteTodo}
             />
-        </>
+        </div>
     );
 };
 

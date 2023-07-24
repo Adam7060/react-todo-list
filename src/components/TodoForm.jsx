@@ -12,17 +12,22 @@ const TodoForm = ({ addTodo }) => {
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit}>
-                <input
-                    onChange={(e) => setItem(e.target.value)}
-                    value={item}
-                    id="item"
-                    type="text"
-                />
-                <button type="onSubmit">Add Todo</button>
-            </form>
-        </>
+        <form
+            onSubmit={onSubmit}
+            className="form">
+            <input
+                className="form-input"
+                onChange={(e) => setItem(e.target.value)}
+                value={item}
+                id="item"
+                type="text"
+            />
+            <button
+                className="form-button"
+                type="onSubmit">
+                Add
+            </button>
+        </form>
     );
 };
 
