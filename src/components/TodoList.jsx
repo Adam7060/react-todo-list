@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-export default function TodoList({ todos, toggleTodo, deleteTodo }) {
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
     return (
         <>
             <ul>
@@ -18,4 +18,6 @@ export default function TodoList({ todos, toggleTodo, deleteTodo }) {
             </ul>
         </>
     );
-}
+};
+
+export default TodoList;

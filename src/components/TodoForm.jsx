@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function TodoForm({ addTodo }) {
+const TodoForm = ({ addTodo }) => {
     const [item, setItem] = useState("");
 
     function onSubmit(e) {
@@ -20,8 +20,10 @@ export default function TodoForm({ addTodo }) {
                     id="item"
                     type="text"
                 />
-                <button>Add Todo</button>
+                <button type="onSubmit">Add Todo</button>
             </form>
         </>
     );
-}
+};
+
+export default TodoForm;

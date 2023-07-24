@@ -1,4 +1,4 @@
-export default function TodoItem({ checked, id, title, toggleTodo, deleteTodo }) {
+const TodoItem = ({ checked, id, title, toggleTodo, deleteTodo }) => {
     return (
         <>
             <li>
@@ -10,8 +10,14 @@ export default function TodoItem({ checked, id, title, toggleTodo, deleteTodo })
                     }}
                 />
                 {title}
-                <button onClick={() => deleteTodo(id)}>Delete Todo</button>
+                <button
+                    type="button"
+                    onClick={() => deleteTodo(id)}>
+                    Delete Todo
+                </button>
             </li>
         </>
     );
-}
+};
+
+export default TodoItem;

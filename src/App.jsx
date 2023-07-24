@@ -3,7 +3,7 @@ import "./style.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
-export default function App() {
+const App = () => {
     const [todos, setTodos] = useState([]);
 
     function addTodo(item) {
@@ -43,4 +43,6 @@ export default function App() {
             />
         </>
     );
-}
+};
+
+export default App;
