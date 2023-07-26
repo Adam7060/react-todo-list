@@ -11,8 +11,9 @@ const TodoItem = ({ checked, id, title, toggleTodo, deleteTodo }) => {
             {title}
             <button
                 type="button"
-                onClick={() => deleteTodo(id)}>
-                Delete Todo
+                onClick={() => deleteTodo(id)}
+                className="btn-delete">
+                DELETE
             </button>
         </li>
     );
